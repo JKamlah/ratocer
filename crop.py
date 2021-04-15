@@ -127,7 +127,7 @@ def crop_lcol(args, image, image_param, list_linecoords, clippingmask):
                 if args.horlinetype == 1 and 'a' in args.croptypes:
                     return roi
                 elif 'a' in args.croptypes:
-                    pass
+                    return roi
     return None
 
 def cropping_lcol(imgpath, args):
@@ -189,7 +189,9 @@ def crop_toc(args, image, image_param, list_linecoords):
                     print(imgpath)
                     imsave(imgpath, roi)
                     return imgpath
-    return None
+    imgpath = "%s_TOC.%s" % (filepath, args.extension)
+    imsave(imgpath, image)
+    return imgpath
 
 def deskew(args,image, image_param):
     # Deskew the given image based on the horizontal line
