@@ -24,6 +24,17 @@ Here is an example for extract the TOC withouth OCR:
     # perform deskewing, crop and splice of a page
     $ docker run -it --rm -v "imgpath":/usr/src/app --user "$(id -u):$(id -g)"  ratocer main.py --crop_only "imgpath"
 
+Here is an example for extract the TOC from url images: 
+
+    # perform deskewing, crop and splice of a page
+    $ docker run -it --rm -v "outputpath":/usr/src/app --user "$(id -u):$(id -g)"  ratocer main.py --crop_only "url" --url_output "outputpath"
+
+Here is an example for extract the TOC from urls from an input file: 
+
+    # perform deskewing, crop and splice of a page
+    $ docker run -it --rm -v "outputpath":/usr/src/app --user "$(id -u):$(id -g)"  ratocer main.py --crop_only file-with-urls --inputfile --url_output "outputpath"
+
+
 Copyright and License
 ----
 
