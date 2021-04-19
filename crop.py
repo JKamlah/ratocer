@@ -316,6 +316,8 @@ def linecoords_analyse(args,origimg, image_param, clippingmask, get_toc=False):
             count_width += 1
             if get_toc:
                 list_linecoords.append(copy.deepcopy(linecoords))
+        # We knew there must be first a horizontal line
+        if count_width == 0: continue
         if pixelheight(args.minheightver) < get_height(b) < pixelheight(args.maxheightver) \
                 and pixelwidth(args.minwidthver) < get_width(b) < pixelwidth(args.maxwidthver) \
                 and pixelwidth(args.minwidthvermask) < (linecoords.width_start+linecoords.width_stop)/2 < pixelwidth(args.maxwidthvermask) \

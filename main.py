@@ -62,7 +62,7 @@ def get_parser():
                             help='Set a mask that only a specific part of the image will be computed, arguments =  Heightstart, Heightend, Widthstart, Widthend')
     arg_parser.add_argument('--minwidthmask', type=float, default=0.06, choices=np.arange(0, 0.5),
                             help='min widthdistance of all masks, default: %(default)s')
-    arg_parser.add_argument('--minwidthhor', type=float, default=0.3, choices=np.arange(0, 1.0),
+    arg_parser.add_argument('--minwidthhor', type=float, default=0.55, choices=np.arange(0, 1.0),
                             help='minwidth of the horizontal lines, default: %(default)s')
     arg_parser.add_argument('--maxwidthhor', type=float, default=0.99, choices=np.arange(-1.0, 1.0),
                             help='maxwidth of the horizontal lines, default: %(default)s')
@@ -123,7 +123,7 @@ def get_parser():
 
 def extract_toc():
     import logging
-    logging.basicConfig(filename='ratocr.log', level=logging.DEBUG)
+    logging.basicConfig(filename='ratocr.log', level=logging.ERROR)
     args = get_parser()
     if args.inputfile and os.path.isfile(args.fpath[0]):
         with open(args.fpath[0],"r") as fin:
