@@ -167,6 +167,8 @@ def extract_toc():
                                          "frak2021",
                                          tocpath_clean,
                                          "stdout"], universal_newlines=True)
+            if not isinstance(tocpath, str):
+                tocpath = str(tocpath.absolute())
             with open(tocpath.rsplit(".", 1)[0] + ".txt", "w") as fout:
                 fout.write(ocr_text.strip())
         except:
